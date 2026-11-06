@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11806.211
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClayGlassesSmileAddon", "ClayGlassesSmileAddon\ClayGlassesSmileAddon.csproj", "{B150137B-29F3-4635-EE1A-3DFF247B6E72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{517F6B68-7FE4-4CD4-8A4D-64390C47CC61}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B150137B-29F3-4635-EE1A-3DFF247B6E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B150137B-29F3-4635-EE1A-3DFF247B6E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B150137B-29F3-4635-EE1A-3DFF247B6E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B150137B-29F3-4635-EE1A-3DFF247B6E72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7A73B63-2D73-43CC-BC6D-1462EB0969AF}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyTitle>ProteinPowderJLLAddon</AssemblyTitle>
+    <Product>ProteinPowderJLLAddon</Product>
+    <Copyright>Copyright ©  2026</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <LangVersion>latest</LangVersion>
+	<NetcodePatcherNoOverwrite>true</NetcodePatcherNoOverwrite>
+	<NetcodePatcherDisableParallel>true</NetcodePatcherDisableParallel>
+	  <RestoreAdditionalProjectSources>
+		  https://api.nuget.org/v3/index.json;
+		  https://nuget.bepinex.dev/v3/index.json;
+		  https://nuget.samboy.dev/v3/index.json;
+	  </RestoreAdditionalProjectSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1" PrivateAssets="all" ExcludeAssets="runtime" />
+    <PackageReference Include="UnityEngine.Modules" Version="2022.3.9" PrivateAssets="all" IncludeAssets="compile" ExcludeAssets="runtime" />
+    <PackageReference Include="Evaisa.LethalLib" Version="0.16" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Misc\InfoStrings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp" Publicize="true">
+      <HintPath>$(LC_PATH)\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(LC_PATH)\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+	  <Reference Include="MoreShipUpgrades" Publicize="true">
+		  <HintPath>$(LC_PLUGIN_PATH)\malco-Lategame_Upgrades\MoreShipUpgrades\MoreShipUpgrades.dll</HintPath>
+	  </Reference>
+	<Reference Include="WesleysInteriorTools" Publicize="true">
+		<HintPath>$(LC_PLUGIN_PATH)\Magic_Wesley-Wesleys_Shenanigans\WesleysInteriorTools.dll</HintPath>
+	</Reference>
+	  <Reference Include="Unity.Netcode.Runtime" Publicize="true">
+		  <HintPath>$(LC_PATH)\Unity.Netcode.Runtime.dll</HintPath>
+	  </Reference>
+  </ItemGroup>
+	<Target Name="NetcodePatch" AfterTargets="PostBuildEvent">
+		<Exec Command="netcode-patch -uv 2022.3.62 -nv 1.12.0 -tv 1.0.0 &quot;$(TargetPath)&quot; @(ReferencePathWithRefAssemblies->'&quot;%(Identity)&quot;', ' ')" />
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(LC_PLUGIN_DIR)" />
+	</Target>
+</Project>
